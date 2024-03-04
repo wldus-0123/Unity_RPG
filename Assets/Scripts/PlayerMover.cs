@@ -29,7 +29,7 @@ public class PlayerMover : MonoBehaviour
 		controller.Move(rightDir * moveDir.x * moveSpeed * Time.deltaTime);
 
 		Vector3 lookDir = forwardDir * moveDir.z + rightDir * moveDir.x;
-		if ( lookDir.magnitude > 0 ) // 9f(lookDir != Vector3.zero) : 이게 더 최적화에 좋음
+		if ( lookDir.magnitude > 0 ) // if(lookDir != Vector3.zero) : 이게 더 최적화에 좋음
         {
 			Quaternion lookRotation = Quaternion.LookRotation(lookDir);
 			transform.rotation = Quaternion.Lerp(transform.rotation,lookRotation, Time.deltaTime * 10);
